@@ -54,16 +54,16 @@ Flam-Bezier-Curve/
 
 The application implements the standard cubic Bézier curve formula:
 
-**B(t) = (1-t)³P₀ + 3(1-t)²tP₁ + 3(1-t)t²P₂ + t³P₃**
+**B(t) = (1-t)³P₁ + 3(1-t)²tP₂ + 3(1-t)t²P₃ + t³P₄**
 
 Where:
 - **t** ∈ [0, 1] is the curve parameter
-- **P₀, P₁, P₂, P₃** are the four control points
+- **P₁, P₂, P₃, P₄** are the four control points (as displayed in the app)
 - **B(t)** is the point on the curve at parameter t
 
 The tangent vector (first derivative) is calculated as:
 
-**B'(t) = 3(1-t)²(P₁-P₀) + 6(1-t)t(P₂-P₁) + 3t²(P₃-P₂)**
+**B'(t) = 3(1-t)²(P₂-P₁) + 6(1-t)t(P₃-P₂) + 3t²(P₄-P₃)**
 
 These formulas are based on Bernstein polynomials, which provide the mathematical foundation for Bézier curves (Prautzsch et al., 2002).
 
@@ -137,19 +137,19 @@ No additional configuration is required. The app will automatically:
 
 The application provides three control modes accessible through the button interface:
 
-1. **P1 Mode**: Device motion controls the first control point (P₂)
-2. **P2 Mode**: Device motion controls the second control point (P₃)
-3. **Both Mode**: Device motion controls both middle control points simultaneously
+1. **P1 Mode**: Device motion controls the first control point (P₂ - first yellow point)
+2. **P2 Mode**: Device motion controls the second control point (P₃ - second yellow point)
+3. **Both Mode**: Device motion controls both middle control points (P₂ and P₃) simultaneously
 
 ### Understanding the Display
 
-- **Red Points**: Endpoint control points (P₁ and P₄) - These remain fixed
-- **Yellow Points**: Middle control points (P₂ and P₃) - These respond to motion
-- **Gradient Curve**: The actual Bézier curve path
+- **Red Points**: Endpoint control points (P₁ and P₄) - These remain fixed at the start and end
+- **Yellow Points**: Middle control points (P₂ and P₃) - These respond to device motion
+- **Gradient Curve**: The actual Bézier curve path interpolating between the control points
 - **Dashed Lines**: Control polygon showing relationships between control points
 - **Purple Arrows**: Tangent vectors showing the curve's direction at various points
-- **Green Dots**: Base points where tangents are calculated
-- **Blue Grid**: Spatial reference grid with coordinate axes
+- **Green Dots**: Base points where tangents are calculated on the curve
+- **Blue Grid**: Spatial reference grid with Cartesian coordinate axes
 
 ### Interacting with the App
 
@@ -163,11 +163,11 @@ The application provides three control modes accessible through the button inter
 
 ### Cubic Bézier Curves
 
-Cubic Bézier curves are parametric curves defined by four control points. They are part of the broader family of Bézier curves, which can have any degree based on the number of control points (Mortenson, 1997).
+Cubic Bézier curves are parametric curves defined by four control points. They are part of the broader family of Bézier curves, which can have any degree based on the number of control points (Mortenson, 1997). This application uses 1-based indexing for control point labels (P₁, P₂, P₃, P₄) as displayed in the interface.
 
 **Properties:**
-- **Interpolation**: The curve passes through the first and last control points (P₀ and P₃)
-- **Approximation**: The curve approximates but doesn't pass through the middle control points
+- **Interpolation**: The curve passes through the first and last control points (P₁ and P₄)
+- **Approximation**: The curve approximates but doesn't pass through the middle control points (P₂ and P₃)
 - **Convex Hull Property**: The curve lies within the convex hull of its control points
 - **Affine Invariance**: Transformations can be applied to control points rather than the curve itself
 - **Smooth Continuity**: C² continuous, meaning position, velocity, and acceleration are continuous
