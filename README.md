@@ -4,13 +4,13 @@ An interactive Bézier curve visualization and control app with real-time physic
 
 ## Table of Contents
 
-1. [Overview](#overview)  
-2. [Mathematical Background](#mathematical-background)  
-3. [Physics & Interaction Model](#physics--interaction-model)  
-4. [Implementation Details](#implementation-details)  
-5. [Design Choices](#design-choices)  
-6. [Usage](#usage)  
-7. [License](#license)
+1. [Overview]  
+2. [Mathematical Background]
+3. [Physics & Interaction Model]
+4. [Implementation Details]
+5. [Design Choices]
+6. [Usage] 
+7. [References]
 
 ## Overview
 
@@ -112,13 +112,9 @@ Rendering prioritizes real-time updates over ultra-high fidelity. The curve is r
 4. Observe how the curve evolves in response to gyroscopic — sensor's complex interactions.
 
 
-## License
-
-This project is open source and available under the terms of the MIT License — see the `LICENSE` file for details.
-
-
 ## References
 
-1. Bézier curve definition and properties — *Wikipedia*.  
-2. De Casteljau’s algorithm for numerically stable evaluation — *Wikipedia*.
-3. Documentations for CADisplayLink, Swift, CoreMotion
+1. Bézier curve definition and properties — https://developer.apple.com/documentation/uikit/uibezierpath  
+2. Documentation for Swift - https://www.swift.org/documentation/
+3. Documentations for CADisplayLink - https://developer.apple.com/documentation/quartzcore/cadisplaylink
+4. Documentation for Coremotion -https://developer.apple.com/documentation/coremotion
