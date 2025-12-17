@@ -28,7 +28,7 @@ Bézier curves are fundamental mathematical constructs widely used in computer g
 
 ### Application Structure
 
-The application follows the MVVM (Model-View-ViewModel) architecture pattern, promoting separation of concerns and maintainability (Osmani, 2012).
+The application follows the MVVM (Model-View-ViewModel) architecture pattern, promoting separation of concerns and maintainability. This pattern is widely adopted in iOS development with SwiftUI (Apple Inc., 2024).
 
 ```
 Flam-Bezier-Curve/
@@ -60,6 +60,8 @@ Where:
 - **t** ∈ [0, 1] is the curve parameter
 - **P₁, P₂, P₃, P₄** are the four control points (as displayed in the app)
 - **B(t)** is the point on the curve at parameter t
+
+*Note: The app uses 1-based indexing (P₁-P₄) for display, while the code internally uses 0-based indexing (p0-p3).*
 
 The tangent vector (first derivative) is calculated as:
 
@@ -137,9 +139,11 @@ No additional configuration is required. The app will automatically:
 
 The application provides three control modes accessible through the button interface:
 
-1. **P1 Mode**: Device motion controls the first control point (P₂ - first yellow point)
-2. **P2 Mode**: Device motion controls the second control point (P₃ - second yellow point)
-3. **Both Mode**: Device motion controls both middle control points (P₂ and P₃) simultaneously
+1. **P1 Mode**: Device motion controls P₂ (the first yellow control point)
+2. **P2 Mode**: Device motion controls P₃ (the second yellow control point)  
+3. **Both Mode**: Device motion controls both P₂ and P₃ simultaneously
+
+*Note: The control mode names (P1, P2) refer to the internal code variables (p1, p2), which correspond to display labels P₂ and P₃.*
 
 ### Understanding the Display
 
@@ -258,6 +262,8 @@ This project is available for educational and personal use. Please refer to the 
 
 ## 📖 References
 
+Apple Inc. (2024). *SwiftUI framework documentation*. Apple Developer Documentation. https://developer.apple.com/documentation/swiftui
+
 Apple Inc. (2024). *CoreMotion framework documentation*. Apple Developer Documentation. https://developer.apple.com/documentation/coremotion
 
 Farin, G. (2002). *Curves and surfaces for CAGD: A practical guide* (5th ed.). Morgan Kaufmann Publishers.
@@ -265,8 +271,6 @@ Farin, G. (2002). *Curves and surfaces for CAGD: A practical guide* (5th ed.). M
 Jakobsen, T. (2001). Advanced character physics. *Game Developers Conference Proceedings*, 383-401.
 
 Mortenson, M. E. (1997). *Geometric modeling* (2nd ed.). John Wiley & Sons.
-
-Osmani, A. (2012). *Learning JavaScript design patterns*. O'Reilly Media.
 
 Prautzsch, H., Boehm, W., & Paluszny, M. (2002). *Bézier and B-spline techniques*. Springer.
 
